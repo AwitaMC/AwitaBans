@@ -64,8 +64,8 @@ class es_ES {
         $array["table.type"] = $array["generic.type"];
         $array["table.executor"] = "Moderador";
         $array["table.reason"] = "Razón";
-        $array["table.reason.unban"] = $array["generic.unban"] . " " . $array["table.reason"];
-        $array["table.reason.unmute"] = $array["generic.unmute"] . " " . $array["table.reason"];
+        $array["table.reason.unban"] = "Razón de desbaneo";
+        $array["table.reason.unmute"] = "Razón de desmuteo";
         $array["table.date"] = "Fecha";
         $array["table.expires"] = "Expira";
         $array["table.received-warning"] = "Advertencia recibida";
