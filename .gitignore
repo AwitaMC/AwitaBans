@@ -2,5 +2,6 @@
 litebans-php.iml
 inc/test/vendor
 inc/test/composer.lock
+inc/settings.php
 vendor
 Makefile
