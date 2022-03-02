@@ -52,6 +52,7 @@ class en_US {
         $array["generic.expired"] = "Expired";
         $array["generic.expired.kick"] = "N/A";
         $array["generic.player-name"] = "Player";
+        $array["generic.reason.default"] = "No reason";
 
         $array["page.expired.ban"] = '(' . $array["generic.unbanned"] . ')';
         $array["page.expired.ban-by"] = '(' . $array["generic.unbanned"] . ' by {name})';

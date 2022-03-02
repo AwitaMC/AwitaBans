@@ -18,7 +18,7 @@ foreach ($rows as $row) {
     $page->print_table_rows($row, array(
         "player"           => $page->get_avatar($player_name, $row['uuid']),
         "executor"         => $page->get_avatar($page->get_banner_name($row), $row['banned_by_uuid']),
-        "reason"           => $page->clean($row['reason']),
+        "reason"           => $page->clean($row['reason']) ?: $page->t("generic.reason.default"),
         "expires"          => $page->expiry($row),
         "received-warning" => (($page->active($row, 'warned') === true) ? "1" : "0"),
         "server.name"      => $page->server($row),

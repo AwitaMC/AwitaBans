@@ -52,6 +52,7 @@ class es_ES {
         $array["generic.expired"] = "Expirado";
         $array["generic.expired.kick"] = "No disponible";
         $array["generic.player-name"] = "Jugador";
+        $array["generic.reason.default"] = "Razón no establecida";
 
         $array["page.expired.ban"] = '(retirado)';
         $array["page.expired.ban-by"] = '(retirado por {name})';
