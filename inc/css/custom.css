@@ -208,3 +208,8 @@ tr.hover {
 footer {
     text-align: center;
 }
+
+footer code {
+    font-size: 100%;
+    color: #787878;
+}
