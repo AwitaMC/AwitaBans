@@ -202,3 +202,9 @@ tr.hover {
 .noalign-h {
     height: 0;
 }
+
+/* Custom - AwitaBans */
+
+footer {
+    text-align: center;
+}
