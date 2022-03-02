@@ -117,10 +117,6 @@ if ($page->settings->header_show_totals) {
                     "kicks.php"    => $this->page->t("title.kicks"),
                 ));
                 ?>
-                <ul class="nav navbar-nav my-2 my-lg-0">
-                    <a href="https://www.spigotmc.org/resources/litebans.3715/"
-                       target="_blank">&copy; LiteBans</a>
-                </ul>
             </div>
         </div>
 </header>
