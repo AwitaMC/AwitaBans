@@ -227,7 +227,6 @@ body {
 
 .navbar-dark .navbar-nav .nav-link {
     color: rgb(255 255 255 / 70%);
-    border-radius: 16px;
     transition: 0.1s all ease-in-out;
 }
 
@@ -235,8 +234,14 @@ body {
     background-image: linear-gradient(#1011126b,#17191b87 40%,#1b1e2063);
 }
 
-.navbar-nav .nav-item+.nav-item:last-child {
-    padding-bottom: 1rem;
+@media screen and (max-width: 991px) {
+    .navbar-dark .navbar-nav .nav-link {
+        border-radius: 16px;
+    }
+
+    .navbar-nav .nav-item+.nav-item:last-child {
+        padding-bottom: 1rem;
+    }
 }
 
 /* Título de la página */
