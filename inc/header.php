@@ -103,7 +103,7 @@ if ($page->settings->header_show_totals) {
 
 
 <header role="banner">
-    <div class="navbar navbar-expand-lg fixed-top <?php echo $settings->navbar_classes; ?>">
+    <div class="navbar navbar-expand-lg fixed-top <?php echo $settings->navbar_classes; ?> acrylic">
         <div class="container">
             <a class="navbar-brand" href="<?php echo $settings->name_link; ?>">
                 <?php echo $settings->name; ?>
