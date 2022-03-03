@@ -11,16 +11,6 @@
     display: flex;
 }
 
-/* header */
-.litebans-header {
-    display: block;
-    text-align: center;
-}
-
-.col-lg-12 {
-    text-align: center;
-}
-
 /* navbar */
 .navbar {
     position: static;
@@ -205,7 +195,7 @@ tr.hover {
 
 /* Custom - AwitaBans */
 
-/* acrylic from https://stackoverflow.com/questions/44522299/css-only-acrylic-material-from-fluent-design-system/57417852#57417852 */
+/* acrylic de https://stackoverflow.com/questions/44522299/css-only-acrylic-material-from-fluent-design-system/57417852#57417852 */
 
 html {
     min-height: 100%;
@@ -225,6 +215,22 @@ body {
     border-radius: 16px;
     overflow: auto;
     width: 100%;
+}
+
+/* Título de la página */
+
+.col-lg-12.page-title {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.col-lg-12.page-title .acrylic {
+    padding: 1rem;
+}
+
+.col-lg-12.page-title h1 {
+    color: white;
+    text-align: left;
 }
 
 table.table-bordered {
