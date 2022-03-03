@@ -642,11 +642,11 @@ class Page {
     }
 
     function table_begin() {
-        echo '<table class="table table-striped table-bordered table-condensed acrylic">';
+        echo '<div class="acrylic"><table class="table table-striped table-bordered table-condensed">';
     }
 
     function table_end($clicky = true) {
-        echo '</table>';
+        echo '</table></div>';
         if ($clicky) {
             echo "<script type=\"text/javascript\">withjQuery(30,function(){ $('tr').click(function(){var href=$(this).find('a').attr('href');if(href!==undefined)window.location=href;}).hover(function(){\$(this).toggleClass('hover');}); });</script>";
         }
