@@ -24,7 +24,7 @@ function navbar($links) {
         $li .= " class=\"$class\"";
 
         if ($this->page->settings->header_show_totals && isset($this->count[$page])) {
-            $title .= ' <span class="' . $this->page->settings->badge_classes . '">';
+            $title .= ' <span class="' . $this->page->settings->badge_classes . ' acrylic">';
             $title .= $this->count[$page];
             $title .= "</span>";
         }
