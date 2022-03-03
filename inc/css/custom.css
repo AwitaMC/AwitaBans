@@ -208,8 +208,8 @@ tr.hover {
 /* acrylic from https://stackoverflow.com/questions/44522299/css-only-acrylic-material-from-fluent-design-system/57417852#57417852 */
 
 body {
-    background-size: cover;
     background: url("/inc/img/background.png") no-repeat center center;
+    background-size: cover;
 }
 
 .acrylic {
