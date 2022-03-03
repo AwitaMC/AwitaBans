@@ -537,7 +537,7 @@ class Page {
             $badgesString = "";
         }
 
-        echo "<div class=\"row\"><div class=\"col-lg-12 page-title\"><div class=\"acrylic\"><h1>$title</h1>" . $badgesString . "</div></div>";
+        echo "<div class=\"row\"><div class=\"col-lg-12 page-title\"><div class=\"acrylic acrylic-radius\"><h1>$title</h1>" . $badgesString . "</div></div>";
         if ($container_start) {
             echo '</div><div class="row"><div class="col-lg-12">';
         }
@@ -654,7 +654,7 @@ class Page {
     }
 
     function table_begin() {
-        echo '<div class="acrylic"><table class="table table-striped table-bordered table-condensed">';
+        echo '<div class="acrylic acrylic-radius"><table class="table table-striped table-bordered table-condensed">';
     }
 
     function table_end($clicky = true) {
