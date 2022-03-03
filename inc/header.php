@@ -78,8 +78,14 @@ if ($page->settings->header_show_totals) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="LiteBans">
+    <!-- Información para buscadores -->
+    <meta name="description" content="¡Revisa todo el historial de sanciones del servidor!">
+    <meta name="theme-color" content="#22D8FF">
+    <meta name="og:site_name" content="Sanciones de AwitaMC">
+    <meta name="og:title" content="Sanciones de AwitaMC">
+    <meta name="og:description" content="¡Revisa todo el historial de sanciones del servidor!">
+    <meta name="og:type" content="website">
+    <meta name="og:image" content="https://static.5sm.online/46bbdc8a0b253ddfbef4d5ab44dfa7fe.png">
     <link href="<?php echo $this->page->resource('inc/img/favicon.ico'); ?>" rel="shortcut icon">
     <!-- CSS -->
     <link href="<?php echo $this->page->resource('inc/css/bootstrap.min.css'); ?>" rel="stylesheet">
