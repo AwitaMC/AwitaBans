@@ -642,7 +642,7 @@ class Page {
     }
 
     function table_begin() {
-        echo '<table class="table table-striped table-bordered table-condensed">';
+        echo '<table class="table table-striped table-bordered table-condensed acrylic">';
     }
 
     function table_end($clicky = true) {
