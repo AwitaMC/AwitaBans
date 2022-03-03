@@ -121,6 +121,7 @@ if ($page->settings->header_show_totals) {
                     "mutes.php"    => $this->page->t("title.mutes"),
                     "warnings.php" => $this->page->t("title.warnings"),
                     "kicks.php"    => $this->page->t("title.kicks"),
+                    "search.php"   => $this->page->t("title.search"),
                 ));
                 ?>
             </div>

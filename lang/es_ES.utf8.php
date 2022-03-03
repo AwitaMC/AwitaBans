@@ -14,6 +14,7 @@ class es_ES {
         $array["title.mutes"] = 'Muteos';
         $array["title.warnings"] = 'Advertencias';
         $array["title.kicks"] = 'Expulsiones';
+        $array["title.search"] = 'Búsqueda';
         $array["title.player-history"] = "Sanciones recientes de {name}";
         $array["title.staff-history"] = "Sanciones recientes por {name}";
 
