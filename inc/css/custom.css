@@ -224,6 +224,7 @@ body {
     box-shadow: 0px 6px 16px 0px #0000003d;
     border-radius: 16px;
     overflow: auto;
+    margin-right: 0;
 }
 
 table.table-bordered {
