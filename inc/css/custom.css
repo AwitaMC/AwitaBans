@@ -225,6 +225,10 @@ body {
     border-radius: 16px;
 }
 
+table {
+    overflow: auto;
+}
+
 table.table-bordered {
     border: none;
 }
