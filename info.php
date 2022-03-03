@@ -175,7 +175,7 @@ if ($st->execute()) {
             }
         }
     }
-    $page->print_header(true, $header . "<div class=\"noalign-w litebans-label-container\">$badges</div>");
+    $page->print_header(true, $header, "<div class=\"noalign-w litebans-label-container\">$badges</div>");
 
     $map = $info->get_info($row, $player_name);
 

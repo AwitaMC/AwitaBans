@@ -524,15 +524,20 @@ class Page {
         echo "<tbody>";
     }
 
-    function print_header($container_start = true, $title = null) {
+    function print_header($container_start = true, $title = null, $badges = null) {
         if ($title === null) {
             $title = $this->title;
         }
         if ($container_start) {
             echo '<div class="container">';
         }
+        if ($badges != null) {
+            $badgesString = "<div class=\"badges-container\">" . $badges . "</div>";
+        } else {
+            $badgesString = "";
+        }
 
-        echo "<div class=\"row\"><div class=\"col-lg-12 page-title\"><div class=\"acrylic\"><h1>$title</h1></div></div>";
+        echo "<div class=\"row\"><div class=\"col-lg-12 page-title\"><div class=\"acrylic\"><h1>$title</h1>" . $badgesString . "</div></div>";
         if ($container_start) {
             echo '</div><div class="row"><div class="col-lg-12">';
         }
