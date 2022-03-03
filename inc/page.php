@@ -153,6 +153,13 @@ class Page {
                     "title" => $this->t("title.kicks"),
                     "page"  => "kicks.php",
                 );
+            case "search":
+                return array(
+                    "type"  => null,
+                    "table" => null,
+                    "title" => $this->t("title.search"),
+                    "page"  => "search.php",
+                );
             default:
                 return array(
                     "type"  => null,
