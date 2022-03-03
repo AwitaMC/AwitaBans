@@ -20,7 +20,7 @@ $page->print_title();
 ?>
 <br>
 <div class="container">
-    <div class="jumbotron">
+    <div class="jumbotron acrylic acrylic-radius">
         <div class="litebans-index litebans-index-main">
             <h2><?php echo str_replace("{server}", $page->settings->name, $page->t("index.welcome.main")); ?></h2>
         </div>

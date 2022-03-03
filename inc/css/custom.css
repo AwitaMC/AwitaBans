@@ -231,7 +231,7 @@ body {
 }
 
 .navbar .nav-link:focus, .navbar .nav-link:hover {
-    background-image: linear-gradient(#1011126b,#17191b87 40%,#1b1e2063);
+    background-color: rgba(16, 17, 18, 0.42);
 }
 
 @media screen and (max-width: 991px) {
@@ -264,6 +264,14 @@ body {
 .badges-container {
 
 }
+
+/* Jumbotron */
+
+.jumbotron {
+    border: none;
+}
+
+/* Tabla */
 
 table.table-bordered {
     border: none;
