@@ -7,7 +7,7 @@ class es_ES {
         $this->array = &$array;
 
         $array["index.welcome.main"] = "Bienvenido a la lista de sanciones de {server}.";
-        $array["index.welcome.sub"] = "Aqui encontraras una lista de todas las sanciones.";
+        $array["index.welcome.sub"] = "Aqui encontrarás una lista de todas las sanciones y podrás buscar el historial de moderación para un usuario en concreto.";
 
         $array["title.index"] = 'Inicio';
         $array["title.bans"] = 'Baneos';
