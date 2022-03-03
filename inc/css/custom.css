@@ -234,6 +234,13 @@ body {
     background-color: rgba(16, 17, 18, 0.42);
 }
 
+.navbar.navbar-dark .navbar-toggler {
+    border-radius: 100px;
+    padding: 0.5em;
+    border: none;
+    font-size: 0.9em;
+}
+
 @media screen and (max-width: 991px) {
     .navbar-dark .navbar-nav .nav-link {
         border-radius: 16px;
