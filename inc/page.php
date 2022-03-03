@@ -485,7 +485,7 @@ class Page {
             $headers_translated = array();
             foreach ($headers as $header) {
                 if ($header === "executor" && $this->name !== "history") {
-                    $header = $this->punished_by[$type];
+                    $header = $this->t("generic.executor");
                 } else {
                     $header = $this->t("table.$header");
                 }

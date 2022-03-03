@@ -34,10 +34,7 @@ class es_ES {
         $array["generic.unbanned"] = "Desbaneado";
         $array["generic.unmuted"] = "Desmuteado";
 
-        $array["generic.banned.by"] = $array["generic.banned"] . " por";
-        $array["generic.muted.by"] = $array["generic.muted"] . " por";
-        $array["generic.warned.by"] = $array["generic.warned"] . " por";
-        $array["generic.kicked.by"] = $array["generic.kicked"] . " por";
+        $array["generic.executor"] = "Moderador";
 
         $array["generic.ipban"] = $array["generic.ban"] . " de IP";
         $array["generic.ipmute"] = $array["generic.mute"] . " de IP";
@@ -62,7 +59,7 @@ class es_ES {
 
         $array["table.player"] = $array["generic.player-name"];
         $array["table.type"] = $array["generic.type"];
-        $array["table.executor"] = "Moderador";
+        $array["table.executor"] = $array["generic.executor"];
         $array["table.reason"] = "Razón";
         $array["table.reason.unban"] = "Razón de desbaneo";
         $array["table.reason.unmute"] = "Razón de desmuteo";
