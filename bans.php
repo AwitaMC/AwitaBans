@@ -6,8 +6,6 @@ $page = new Page("bans");
 $page->print_title();
 $page->print_header();
 
-$page->print_check_form();
-
 $page->table_begin();
 
 $rows = $page->run_query();
