@@ -91,6 +91,11 @@ if ($page->settings->header_show_totals) {
     <link href="<?php echo $this->page->resource('inc/css/bootstrap.min.css'); ?>" rel="stylesheet">
     <link href="<?php echo $this->page->resource('inc/css/glyphicons.min.css'); ?>" rel="stylesheet">
     <link href="<?php echo $this->page->resource('inc/css/custom.css'); ?>" rel="stylesheet">
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet">
+
     <script type="text/javascript">
         function withjQuery(tries, f) {
             if (window.jQuery) f();
