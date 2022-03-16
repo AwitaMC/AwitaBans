@@ -74,7 +74,7 @@ class Settings {
 
         // `avatar_source_offline_mode` controls where avatars for offline-mode players are fetched from.
         // Crafatar no longer supports names, so it cannot be used as an offline-mode player-name avatar source as of 2018-02-16 (https://crafatar.com/#meta-usernames)
-        $this->avatar_source_offline_mode = 'https://minotar.net/avatar/{name}/25';
+        $this->avatar_source_offline_mode = 'https://minotar.net/avatar/{name}/32';
 
         // If enabled, names will be shown below avatars instead of being shown next to them.
         $this->avatar_names_below = true;
