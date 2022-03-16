@@ -70,7 +70,7 @@ class Settings {
         // 'https://cravatar.eu/avatar/{uuid}/25'
         // 'https://crafatar.com/avatars/{uuid}?size=25'
         // 'https://minotar.net/avatar/{uuid}/25'
-        $this->avatar_source = 'https://cravatar.eu/avatar/{uuid}/25';
+        $this->avatar_source = 'https://visage.surgeplay.com/face/32/{uuid}';
 
         // `avatar_source_offline_mode` controls where avatars for offline-mode players are fetched from.
         // Crafatar no longer supports names, so it cannot be used as an offline-mode player-name avatar source as of 2018-02-16 (https://crafatar.com/#meta-usernames)
