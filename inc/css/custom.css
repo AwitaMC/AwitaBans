@@ -300,11 +300,11 @@ table.table-bordered thead td, table.table-bordered thead th {
     border-bottom: 1px solid rgba(31, 52, 66, 0.16);
 }
 
-table.table-info tr td:first-child {
+table.table-punish-info tr td:first-child {
     min-width: 200px;
 }
 
-table.table-info tr td:last-child {
+table.table-punish-info tr td:last-child {
     overflow-wrap: anywhere;
 }
 
