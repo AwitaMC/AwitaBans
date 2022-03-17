@@ -659,8 +659,8 @@ class Page {
         return "$file?" . $mtime;
     }
 
-    function table_begin() {
-        echo '<div class="acrylic acrylic-radius"><table class="table table-striped table-bordered table-condensed">';
+    function table_begin($isInfo = false) {
+        echo '<div class="acrylic acrylic-radius"><table class="table table-striped table-bordered table-condensed' . ($isInfo ? ' table-info' : '') . '">';
     }
 
     function table_end($clicky = true) {

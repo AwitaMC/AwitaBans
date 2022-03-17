@@ -179,7 +179,7 @@ if ($st->execute()) {
 
     $map = $info->get_info($row, $player_name);
 
-    $page->table_begin();
+    $page->table_begin(true);
 
     foreach ($map as $key => $val) {
         $key = $page->t($key);
