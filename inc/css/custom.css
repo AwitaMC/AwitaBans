@@ -311,6 +311,30 @@ tbody {
     border-bottom-right-radius: 10px;
 }
 
+.truncate {
+    display: inline-block;
+    width: 330px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    overflow-wrap: anywhere;
+
+}
+
+@media screen and (max-width: 1199px) {
+    .truncate {
+        width: 200px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .truncate {
+        width: 140px;
+    }
+}
+
+/* Footer */
+
 footer {
     text-align: center;
     margin-top: 1rem;

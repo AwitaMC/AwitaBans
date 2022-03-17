@@ -505,11 +505,17 @@ class Page {
         echo "<tr>";
         foreach ($array as $header => $text) {
             $a = "a";
+
             if ($header === "received-warning") {
                 $icon = ($text !== "0") ? "glyphicon-ok" : "glyphicon-remove";
                 $a .= " class=\"glyphicon $icon\" aria-hidden=true";
                 $text = "";
             }
+
+            if ($header === "reason") {
+                $a .= " class=\"truncate\"";
+            }
+
             $href = $this->link("info.php?type=$type&id=$id");
             echo "<td><$a href=\"$href\">$text</a></td>";
         }
