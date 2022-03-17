@@ -302,6 +302,7 @@ table.table-bordered thead td, table.table-bordered thead th {
 
 table.table-punish-info tr td:first-child {
     min-width: 200px;
+    font-weight: bold;
 }
 
 table.table-punish-info tr td:last-child {
