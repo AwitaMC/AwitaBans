@@ -35,7 +35,7 @@ class Check {
             if (!isset($uuid)) {
                 if (filter_var($name, FILTER_VALIDATE_FLOAT)) {
                     echo "<br>";
-                    redirect($page->link("info.php?id=$name&type=$type"));
+                    redirect($page->link("info.php?type=$type&id=$name"));
                     return;
                 }
                 $name = htmlspecialchars($name, ENT_QUOTES);
