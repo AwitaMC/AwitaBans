@@ -56,7 +56,7 @@ if ($page->settings->header_show_totals) {
             (SELECT COUNT(*) FROM $t_kicks $active_query)";
 
         if ($page->db->verify) {
-            $sql .= ",(SELECT * FROM " . $t['config'] . " LIMIT 1)";
+            $sql .= ",(SELECT build FROM " . $t['config'] . " LIMIT 1)";
         }
         $st = $page->conn->query($sql);
 
