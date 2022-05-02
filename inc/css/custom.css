@@ -161,6 +161,11 @@ tr.hover {
     background-color: #ee5555;
 }
 
+.litebans-label-ipmute {
+    color: #fff;
+    background-color: #ee5555;
+}
+
 /* history.php */
 .litebans-label-history {
     display: inline;
