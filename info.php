@@ -123,6 +123,10 @@ $id = (int)$id;
 $type = $page->type;
 $table = $page->table;
 
+if (is_null($table) || $table === "") {
+
+}
+
 $select = $page->get_selection($table); // Not user input
 
 $st = $page->conn->prepare("SELECT $select FROM $table WHERE id=:id LIMIT 1");
