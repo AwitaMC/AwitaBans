@@ -80,7 +80,7 @@ if ($page->settings->header_show_totals) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Información para buscadores -->
     <meta name="description" content="¡Revisa todo el historial de sanciones del servidor!">
-    <meta name="theme-color" content="#22D8FF">
+    <meta name="theme-color" content="#2260bb">
     <meta name="og:site_name" content="Sanciones de AwitaMC">
     <meta name="og:title" content="Sanciones de AwitaMC">
     <meta name="og:description" content="¡Revisa todo el historial de sanciones del servidor!">
