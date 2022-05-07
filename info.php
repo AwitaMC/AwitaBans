@@ -110,9 +110,9 @@ class MuteInfo extends Info {
         return $array;
     }
 
-    function badge($badgeClasses, $name) {
+    function badge($name) {
         if ($name === "ipban") $name = "ipmute";
-        return parent::badge($badgeClasses, $name);
+        return parent::badge($name);
     }
 }
 
