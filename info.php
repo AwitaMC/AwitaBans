@@ -51,16 +51,34 @@ abstract class Info {
         return $this->page->get_avatar($banner_name, $row['banned_by_uuid'], true, $this->history_link($banner_name, $row['banned_by_uuid'], ':issued'), $name_left = false);
     }
 
+    function badge($name) {
+        return "<span class=\"{$this->page->settings->info_badge_classes} litebans-label-info litebans-label-$name\">" . $this->page->t("generic.$name") . "</span>";
+    }
+
     function get_info() {
         $settings = $this->page->settings;
         $table = array(
-            'table.player'        => function (Info $info) { return $info->punished_avatar(); },
-            'table.executor'      => function (Info $info) { return $info->moderator_avatar(); },
-            'table.reason'        => function (Info $info) { return $info->page->clean($info->row['reason']); },
-            'table.date'          => function (Info $info) { return $info->page->millis_to_date($info->row['time']); },
-            'table.expires'       => function (Info $info) { return $info->page->expiry($info->row); },
-            'table.server.scope'  => function (Info $info) { return $info->page->server($info->row); },
-            'table.server.origin' => function (Info $info) { return $info->page->server($info->row, "server_origin"); },
+            'table.player'        => function (Info $info) {
+                return $info->punished_avatar();
+            },
+            'table.executor'      => function (Info $info) {
+                return $info->moderator_avatar();
+            },
+            'table.reason'        => function (Info $info) {
+                return $info->page->clean($info->row['reason']);
+            },
+            'table.date'          => function (Info $info) {
+                return $info->page->millis_to_date($info->row['time']);
+            },
+            'table.expires'       => function (Info $info) {
+                return $info->page->expiry($info->row);
+            },
+            'table.server.scope'  => function (Info $info) {
+                return $info->page->server($info->row);
+            },
+            'table.server.origin' => function (Info $info) {
+                return $info->page->server($info->row, "server_origin");
+            },
         );
         if (!$settings->info_show_server_scope) unset($table['table.server.scope']);
         if (!$settings->info_show_server_origin) unset($table['table.server.origin']);
@@ -73,21 +91,34 @@ class BanInfo extends Info {
     function get_info() {
         $array = parent::get_info();
         if ($this->page->active($this->row) === false) {
-            $array["table.reason.unban"] = function (Info $info) { return $info->page->clean($info->row['removed_by_reason']); };
+            $array["table.reason.unban"] = function (Info $info) {
+                return $info->page->clean($info->row['removed_by_reason']);
+            };
         }
         return $array;
     }
 }
+
 class MuteInfo extends Info {
     function get_info() {
         $array = parent::get_info();
         if ($this->page->active($this->row) === false) {
-            $array["table.reason.unmute"] = function (Info $info) { return $info->page->clean($info->row['removed_by_reason']); };
+            $array["table.reason.unmute"] = function (Info $info) {
+                return $info->page->clean($info->row['removed_by_reason']);
+            };
         }
         return $array;
     }
+
+    function badge($badgeClasses, $name) {
+        if ($name === "ipban") $name = "ipmute";
+        return parent::badge($badgeClasses, $name);
+    }
 }
-class WarnInfo extends Info {}
+
+class WarnInfo extends Info {
+}
+
 //+
 
 class KickInfo extends Info {
@@ -146,33 +177,23 @@ if ($st->execute()) {
 
     $header = $page->name;
     $badges = "";
-    $bc = $page->settings->info_badge_classes;
 
     if (!($info instanceof KickInfo)) {
-        $active = $page->active($row);
+        $expired = $page->is_expired($row);
+        $active = !$expired && $page->active($row);
         $ipban = $page->active($row, 'ipban');
         if ($ipban === true) {
-            $idx = null;
-            if ($info instanceof BanInfo) {
-                $idx = "generic.ipban";
-            } else if ($info instanceof MuteInfo) {
-                $idx = "generic.ipmute";
-            }
-            if ($idx !== null) {
-                $badges .= "<span class='$bc litebans-label-info litebans-label-ipban'>" . $page->t($idx) . "</span>";
-            }
+            $badges .= $info->badge("ipban");
         }
-        if ($active === true) {
-            $badges .= "<span class='$bc litebans-label-info litebans-label-active'>" . $page->t("generic.active") . "</span>";
+        if ($active) {
+            $badges .= $info->badge("active");
             if ($permanent) {
-                $badges .= "<span class='$bc litebans-label-info litebans-label-permanent'>" . $page->t("generic.permanent") . "</span>";
+                $badges .= $info->badge("permanent");
             }
+        } else if ($expired) {
+            $badges .= $info->badge("expired");
         } else {
-            if ($page->is_expired($row)) {
-                $badges .= "<span class='$bc litebans-label-info litebans-label-expired'>" . $page->t("generic.expired") . "</span>";
-            } else {
-                $badges .= "<span class='$bc litebans-label-info litebans-label-inactive'>" . $page->t("generic.inactive") . "</span>";
-            }
+            $badges .= $info->badge("inactive");
         }
     }
     $page->print_header(true, $header, "<div class=\"noalign-w litebans-label-container\">$badges</div>");
