@@ -111,6 +111,12 @@ class Page {
         return substr($local_path, 0, strpos($local_path, "/"));
     }
 
+    /**
+     * Returns a language translation entry, or the key provided if it isn't found.
+     * @param $str string Translation key
+     * @return mixed|string Translation string, or key if not found
+     */
+
     public function t($str) {
         if (array_key_exists($str, $this->lang->array)) {
             return $this->lang->array[$str];
@@ -530,7 +536,7 @@ class Page {
         echo "<tbody>";
     }
 
-    function print_header($container_start = true, $title = null, $badges = null) {
+    function print_header($container_start = true, $title = null, $badges = null, $subtitle = null) {
         if ($title === null) {
             $title = $this->title;
         }
@@ -543,7 +549,7 @@ class Page {
             $badgesString = "";
         }
 
-        echo "<div class=\"row\"><div class=\"col-lg-12 page-title\"><div class=\"acrylic acrylic-radius\"><h1>$title</h1>" . $badgesString . "</div></div>";
+        echo "<div class=\"row\"><div class=\"col-lg-12 page-title\"><div class=\"acrylic acrylic-radius\"><h1>$title</h1>" . $badgesString . "<p>$subtitle</p></div></div>";
         if ($container_start) {
             echo '</div><div class="row"><div class="col-lg-12">';
         }

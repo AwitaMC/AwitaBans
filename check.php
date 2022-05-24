@@ -8,12 +8,15 @@ class Check {
         $column = "name"; // Safe user input (constants only)
 
         // validate user input
-        if ($page->is_uuid($name) && preg_match("/^[0-9a-zA-Z-]{32,36}$/", $name)) {
+        if ($page->is_uuid($name) && preg_match($page->settings->uuid_regex_pattern, $name)) {
             $column = "uuid";
             $name = $page->uuid_dashify($name);
-        } else if (strlen($name) > 16 || !preg_match("/^[0-9a-zA-Z_]{1,16}$/", $name)) {
+        } else if (strlen($name) > 16 || !preg_match($page->settings->username_regex_pattern, $name)) {
             $this->println($page->t("error.name.invalid"));
             return;
+        } else if (preg_match('/^#(ban|kick|mute|warn)-(\d+)$/', $name, $matches)) {
+            $type = $matches[1];
+            $id = $matches[2];
         }
         $table = $page->settings->table['history']; // Not user input
 
@@ -30,12 +33,12 @@ class Check {
 
             // sanitize $_POST['table'] ($from)
             $info = $page->type_info($from);
-            $type = $info['type'];
+            //$type = $info['type'];
 
             if (!isset($uuid)) {
                 if (filter_var($name, FILTER_VALIDATE_FLOAT)) {
                     echo "<br>";
-                    redirect($page->link("info.php?type=$type&id=$name"));
+                    redirect($page->link("info.php?type=$type&id=$id"));
                     return;
                 }
                 $name = htmlspecialchars($name, ENT_QUOTES);

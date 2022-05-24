@@ -45,6 +45,12 @@ class Settings {
         // Show silent bans?
         $this->show_silent_bans = true;
 
+        // Regex pattern for UUID matching
+        $this->uuid_regex_pattern = "/^[0-9a-zA-Z-]{32,36}$/";
+
+        // Regex pattern for username matching
+        $this->username_regex_pattern = "/^[0-9a-zA-Z_]{1,16}$/";
+
         // https://secure.php.net/manual/en/timezones.php
         // Example: "Europe/London"
         $this->timezone = "UTC";

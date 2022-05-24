@@ -17,6 +17,7 @@ class en_US {
         $array["title.player-history"] = "Recent Punishments for {name}";
         $array["title.staff-history"] = "Recent Punishments by {name}";
 
+        $array["subtitle.search"] = "You can search players by username or UUID, and punishments by ID (e.g. #ban-100, #mute-200, etc).";
 
         $array["generic.ban"] = "Ban";
         $array["generic.mute"] = "Mute";

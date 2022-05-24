@@ -18,6 +18,7 @@ class es_ES {
         $array["title.player-history"] = "Sanciones recientes de {name}";
         $array["title.staff-history"] = "Sanciones recientes por {name}";
 
+        $array["subtitle.search"] = "Aquí puedes buscar a jugadores por nombre de usuario o UUID, y sanciones por ID (por ejemplo, #ban-100 o #mute-200).";
 
         $array["generic.ban"] = "Baneo";
         $array["generic.mute"] = "Muteo";
