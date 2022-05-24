@@ -563,7 +563,7 @@ class Page {
              <div class="litebans-check litebans-check-form">
                  <form action="check.php" onsubmit="captureForm(event);" class="form-inline">
                     <div class="form-group">
-                        <input type="text" class="form-control" name="name" id="user" placeholder="' . $this->t("generic.player-name") . '" required pattern="[A-Za-z0-9._]{3,17}">
+                        <input type="text" class="form-control" name="name" id="user" placeholder="' . $this->t("generic.player-name") . '" required>
                     </div>
                     <input type="hidden" name="table" value="' . $this->name . '">
                     <button type="submit" class="btn btn-primary" style="margin-left: 5px;">' . $this->t("action.check") . '</button>
