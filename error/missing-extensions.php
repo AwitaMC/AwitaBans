@@ -14,7 +14,7 @@
         <div class="text-warning">
             <?php
             $problems = array();
-            foreach(array("pdo_mysql", "intl") as $ext) {
+            foreach (array("pdo_mysql", "intl") as $ext) {
                 if (!extension_loaded($ext)) {
                     $problems[] = "- <a class=\"text-danger\">$ext</a>";
                 }
@@ -24,9 +24,9 @@
                 echo(implode("<br>", $problems));
                 $phpini = php_ini_loaded_file();
 
-                echo "These extensions can be enabled in php.ini.<br><br>";
-                echo "php.ini location: <a class=\"text-info\">" . $phpini . "</a><br>";
-                echo "List of currently loaded extensions:";
+                echo "<br>These extensions can be enabled in php.ini.";
+                echo "<br><br>php.ini location: <a class=\"text-info\">" . $phpini . "</a>";
+                echo "<br>List of currently loaded extensions:<br>";
                 echo(implode(', ', get_loaded_extensions()));
             }
             ?>
