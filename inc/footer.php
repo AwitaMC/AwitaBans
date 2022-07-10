@@ -1,11 +1,15 @@
+<?php
+$commitHash = exec('git log --pretty="%h" -n1 HEAD') ?: "unknown";
+?>
+
 <footer>
     <div class="container">
         <div class="acrylic acrylic-radius">
-            <p>AwitaBans by BetTD - <code><?= exec('git log --pretty="%h" -n1 HEAD'); ?></code></p>
+            <p><a href="https://github.com/AwitaMC/AwitaBans" target="_blank">AwitaBans</a> - commit <code><?= $commitHash ?></code></p>
             <p>Un proyecto basado en <a href="https://gitlab.com/ruany/litebans-php" target="_blank">litebans-php</a> de Ruan</p>
         </div>
     </div>
 </footer>
-<script src="<?php echo $this->resource('inc/js/jquery-3.5.1.min.js'); ?>"></script>
-<script src="<?php echo $this->resource('inc/js/bootstrap.min.js'); ?>"></script>
-<?php echo "</html>"; ?>
+<script src="<?= $this->resource('inc/js/jquery-3.5.1.min.js') ?>"></script>
+<script src="<?= $this->resource('inc/js/bootstrap.min.js') ?>"></script>
+<?= "</html>" ?>
