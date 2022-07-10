@@ -10,6 +10,6 @@ $commitHash = exec('git log --pretty="%h" -n1 HEAD') ?: "unknown";
         </div>
     </div>
 </footer>
-<script src="<?= $this->resource('inc/js/jquery-3.5.1.min.js') ?>"></script>
+<script src="<?= $this->resource('inc/js/jquery-3.6.0.min.js') ?>"></script>
 <script src="<?= $this->resource('inc/js/bootstrap.min.js') ?>"></script>
 <?= "</html>" ?>
