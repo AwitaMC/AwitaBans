@@ -95,7 +95,7 @@ if ($page->settings->header_show_totals) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet">
-    <link href="<?= $this->page->resource('inc/css/fontawesome-all.min.css') ?>" rel="stylesheet">
+    <link href="<?= $this->page->resource('inc/fontawesome/css/all.min.css') ?>" rel="stylesheet">
 
     <script type="text/javascript">
         function withjQuery(tries, f) {
