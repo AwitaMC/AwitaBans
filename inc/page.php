@@ -634,8 +634,8 @@ class Page {
             $pager_next_href = $this->append_param(($this->link("$page") . "{$args}"), "page={$next}");
         }
 
-        $pager_prev = "<a class=\"litebans-pager litebans-pager-left $prev_class\" href=\"$pager_prev_href\"><i class='fa-solid fa-chevrons-left'></i></a>";
-        $pager_next = "<a class=\"litebans-pager litebans-pager-right $next_class\" href=\"$pager_next_href\"><i class='fa-solid fa-chevrons-right'></i></a>";
+        $pager_prev = "<a class=\"litebans-pager litebans-pager-left $prev_class\" href=\"$pager_prev_href\"><i class='fa-solid fa-chevron-circle-left'></i></a>";
+        $pager_next = "<a class=\"litebans-pager litebans-pager-right $next_class\" href=\"$pager_next_href\"><i class='fa-solid fa-chevron-circle-right'></i></a>";
 
         $pager_count = '<div class="litebans-pager-number">' . $this->t("table.pager.number") . ' ' . $cur . '/' . $pages . '</div>';
         return array(
