@@ -12,19 +12,4 @@ $commitHash = exec('git log --pretty="%h" -n1 HEAD') ?: "unknown";
 </footer>
 <script src="<?= $this->resource('inc/js/jquery-3.6.0.min.js') ?>"></script>
 <script src="<?= $this->resource('inc/js/bootstrap.min.js') ?>"></script>
-
-<script>
-    window.onload = function () {
-        var span = document.createElement('span');
-
-        span.className = 'fa';
-        span.style.display = 'none';
-        document.body.insertBefore(span, document.body.firstChild);
-
-        alert(window.getComputedStyle(span, null).getPropertyValue('font-family'));
-
-        document.body.removeChild(span);
-    };
-</script>
-
 <?= "</html>" ?>
