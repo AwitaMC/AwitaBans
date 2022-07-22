@@ -86,15 +86,16 @@ if ($page->settings->header_show_totals) {
     <meta name="og:description" content="¡Revisa todo el historial de sanciones del servidor!">
     <meta name="og:type" content="website">
     <meta name="og:image" content="https://static.5sm.online/46bbdc8a0b253ddfbef4d5ab44dfa7fe.png">
-    <link href="<?php echo $this->page->resource('inc/img/favicon.ico'); ?>" rel="shortcut icon">
+    <link href="<?= $this->page->resource('inc/img/favicon.ico'); ?>" rel="shortcut icon">
     <!-- CSS -->
-    <link href="<?php echo $this->page->resource('inc/css/bootstrap.min.css'); ?>" rel="stylesheet">
-    <link href="<?php echo $this->page->resource('inc/css/glyphicons.min.css'); ?>" rel="stylesheet">
-    <link href="<?php echo $this->page->resource('inc/css/custom.css'); ?>" rel="stylesheet">
+    <link href="<?= $this->page->resource('inc/css/bootstrap.min.css') ?>" rel="stylesheet">
+    <link href="<?= $this->page->resource('inc/css/glyphicons.min.css') ?>" rel="stylesheet">
+    <link href="<?= $this->page->resource('inc/css/custom.css') ?>" rel="stylesheet">
     <!-- Fuentes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet">
+    <link href="<?= $this->page->resource('inc/css/fontawesome-all.min.css') ?>" rel="stylesheet">
 
     <script type="text/javascript">
         function withjQuery(tries, f) {
