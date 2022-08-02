@@ -81,16 +81,14 @@ class Database {
     function handle_error(Settings $cfg, Exception $e) {
         if ($cfg->error_throw) throw $e;
 
-        $message = $e->getMessage();
+        $message = 'Database error: ' . $e->getMessage();
         if ($cfg->error_pages) {
             if (strstr($message, "Access denied for user")) {
-                if ($cfg->error_reporting) {
-                    redirect("error/access-denied.php?error=" . base64_encode($message));
-                } else {
-                    redirect("error/access-denied.php");
-                }
+                $param = "";
+                if ($cfg->error_reporting) $param = "?error=" . base64_encode($e->getMessage());
+                redirect("error/access-denied.php$param");
             }
-            if (strstr($message, "Base table or view not found:")) {
+            if (strstr($message, "Base table or view not found:") || strstr($message, "Unknown column")) {
                 try {
                     $st = $this->conn->query("SELECT * FROM " . $cfg->table['bans'] . " LIMIT 1;");
                     $st->fetch();
@@ -100,13 +98,8 @@ class Database {
                 }
                 redirect("error/outdated-plugin.php");
             }
-            if (strstr($message, "Unknown column")) {
-                redirect("error/outdated-plugin.php");
-            }
         }
-        if ($cfg->error_reporting) {
-            die("Database error: $message");
-        }
-        die("Database error");
+        if (!$cfg->error_reporting) $message = "Database error";
+        die($message);
     }
 }
