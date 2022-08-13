@@ -24,9 +24,10 @@
                 echo(implode("<br>", $problems));
                 $phpini = php_ini_loaded_file();
 
-                echo "<br>These extensions can be enabled in php.ini.";
+                echo "<br>Please ensure that the correct php-intl and php-mysql packages are installed.";
+                echo "<br>After installation, these extensions can be enabled in php.ini.";
                 echo "<br><br>php.ini location: <a class=\"text-info\">" . $phpini . "</a>";
-                echo "<br>List of currently loaded extensions:<br>";
+                echo "<br><br>List of currently loaded extensions:<br>";
                 echo(implode(', ', get_loaded_extensions()));
             }
             ?>
