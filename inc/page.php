@@ -198,7 +198,7 @@ class Page {
 
             $select = $this->get_selection($table); // Not user input
 
-            $where = $this->where_append($this->name === "kicks" ? "" : $this->db->active_query); // Not user input
+            $where = $this->where_append($this->db->active_query); // Not user input
             $where .= "(uuid <> '#offline#' AND uuid IS NOT NULL)";
 
             $st = $this->conn->prepare("SELECT $select FROM $table $where ORDER BY time DESC LIMIT :limit OFFSET :offset");
