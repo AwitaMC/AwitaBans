@@ -73,7 +73,7 @@ tr.hover {
 
 /* pager */
 .litebans-pager {
-    font-size: 30px;
+    font-size: 24px;
 }
 
 .litebans-pager-number {
@@ -91,7 +91,11 @@ tr.hover {
 }
 
 .litebans-pager-active {
-    color: darkcyan;
+    color: #ececec;
+}
+
+.litebans-pager-active:hover {
+    color: #fff;
 }
 
 .litebans-pager-inactive {
