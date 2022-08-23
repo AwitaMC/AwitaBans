@@ -20,15 +20,14 @@
                 }
             }
             if (count($problems) > 0) {
-                echo("The following PHP extensions are required by litebans-php but were not found:<br>");
-                echo(implode("<br>", $problems));
                 $phpini = php_ini_loaded_file();
+                $problems = implode("<br>", $problems);
 
+                echo "The following PHP extensions are required by litebans-php but were not found:<br>$problems";
                 echo "<br>Please ensure that the correct php-intl and php-mysql packages are installed.";
                 echo "<br>After installation, these extensions can be enabled in php.ini.";
-                echo "<br><br>php.ini location: <a class=\"text-info\">" . $phpini . "</a>";
-                echo "<br><br>List of currently loaded extensions:<br>";
-                echo(implode(', ', get_loaded_extensions()));
+                echo "<br><br>php.ini location: <a class=\"text-info\">$phpini</a>";
+                echo "<br>Hint: Open php.ini in a text editor, search for <a class=\"text-info\">;extension=intl.so</a> and remove the <a class=\"text-danger\">;</a> character on that line.";
             }
             ?>
         </div>
