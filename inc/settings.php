@@ -17,7 +17,7 @@ class Settings {
         // If you set a table prefix in config.yml, set it here as well
         $this->table_prefix = "litebans_";
 
-        // Supported drivers: mysql, pgsql
+        // Supported drivers: mysql, mariadb, pgsql
         $this->driver = 'mysql';
 
         // Server name, shown on the main page and on the header
