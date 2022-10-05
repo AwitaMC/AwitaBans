@@ -2,9 +2,10 @@
 
 class zh_HK {
     public function __construct() {
-        $this->version = 1;
+        $this->version = 2;
         $array = array();
         $this->array = &$array;
+
         $array["index.welcome.main"] = "歡迎來到{server}的封禁名單!";
         $array["index.welcome.sub"] = "這裡記錄了我們的所有玩家的懲罰記錄!";
 
@@ -22,10 +23,16 @@ class zh_HK {
         $array["generic.warn"] = "警告";
         $array["generic.kick"] = "踢出";
 
+        $array["generic.unban"] = "已解封";
+        $array["generic.unmute"] = "已解封";
+
         $array["generic.banned"] = "已封禁";
         $array["generic.muted"] = "已禁言";
         $array["generic.warned"] = "已警告";
         $array["generic.kicked"] = "已踢出";
+
+        $array["generic.unbanned"] = "已解封";
+        $array["generic.unmuted"] = "已解封";
 
         $array["generic.banned.by"] = $array["generic.banned"] . " 懲罰者";
         $array["generic.muted.by"] = $array["generic.muted"] . " 懲罰者";
@@ -43,6 +50,7 @@ class zh_HK {
         $array["generic.active"] = "有效";
         $array["generic.inactive"] = "無效";
         $array["generic.expired"] = "已過期";
+        $array["generic.expired.kick"] = "N/A";
         $array["generic.player-name"] = "玩家ID";
 
         $array["page.expired.ban"] = '(已解封)';
@@ -55,9 +63,12 @@ class zh_HK {
         $array["table.type"] = $array["generic.type"];
         $array["table.executor"] = "懲罰者";
         $array["table.reason"] = "原因";
+        $array["table.reason.unban"] = $array["generic.unban"] . " " . $array["table.reason"];
+        $array["table.reason.unmute"] = $array["generic.unmute"] . " " . $array["table.reason"];
         $array["table.date"] = "處理日期";
         $array["table.expires"] = "過期時間";
         $array["table.received-warning"] = "收到警告";
+
 
         $array["table.server.name"] = "適用服務器";
         $array["table.server.scope"] = "服務器範圍";

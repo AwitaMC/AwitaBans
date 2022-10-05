@@ -12,9 +12,18 @@ class Database {
     }
 
     function connect(Settings $cfg, $verify = true) {
+        $driver = $cfg->driver;
+        $host = $cfg->host;
+        $port = $cfg->port;
+        $database = $cfg->database;
+        $username = $cfg->username;
+        $password = $cfg->password;
+        $this->verify = $verify;
         $this->active_query = "";
 
-        if ($cfg->driver === "pgsql") {
+        if (strtolower($driver) === "mariadb") {
+            $driver = "mysql";
+        } elseif ($driver === "pgsql") {
             Database::$TRUE = "B'1'";
             Database::$FALSE = "B'0'";
         }
@@ -27,13 +36,6 @@ class Database {
             $this->active_query = self::append_query($this->active_query, "silent=" . Database::$FALSE);
         }
 
-        $this->verify = $verify;
-        $driver = $cfg->driver;
-        $host = $cfg->host;
-        $port = $cfg->port;
-        $database = $cfg->database;
-        $username = $cfg->username;
-        $password = $cfg->password;
         if ($username === "" && $password === "") {
             redirect("error/unconfigured.php");
         }
