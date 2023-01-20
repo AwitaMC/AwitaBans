@@ -165,7 +165,7 @@ if ($st->execute()) {
 
     $player_name = $page->get_name($row['uuid']);
 
-    ($player_name !== null) or die(str_replace("{name}", $player_name, $page->t("error.name.unseen")));
+    ($player_name !== null) or die(str_replace("{name}", "null", $page->t("error.name.unseen")));
 
     $info = Info::create($row, $player_name, $page, $type);
 
