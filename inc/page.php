@@ -1,6 +1,7 @@
 <?php
 require_once './inc/init.php';
 
+#[AllowDynamicProperties]
 class Page {
     public function __construct($name, $header = true, $connect = true) {
         $this->time = microtime(true);

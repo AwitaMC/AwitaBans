@@ -1,5 +1,6 @@
 <?php
 
+#[AllowDynamicProperties]
 class nl_NL {
     public function __construct() {
         $this->version = 0;

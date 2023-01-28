@@ -1,6 +1,7 @@
 <?php
 require_once './inc/page.php';
 
+#[AllowDynamicProperties]
 abstract class Info {
     /**
      * @param $row PDO::PDORow

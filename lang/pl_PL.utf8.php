@@ -1,5 +1,6 @@
 <?php
 
+#[AllowDynamicProperties]
 class pl_PL {
     public function __construct() {
         $this->version = 1;

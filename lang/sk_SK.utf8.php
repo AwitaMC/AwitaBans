@@ -1,5 +1,6 @@
 <?php
 
+#[AllowDynamicProperties]
 class sk_SK {
     public function __construct() {
         $this->version = 1;

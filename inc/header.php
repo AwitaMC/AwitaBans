@@ -1,5 +1,6 @@
 <?php
 
+#[AllowDynamicProperties]
 class Header {
 /**
  * @param $page Page

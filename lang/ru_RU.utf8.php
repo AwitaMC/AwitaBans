@@ -4,6 +4,7 @@
 // Поправил CXMorgan
 // Corrected by CXMorgan
 
+#[AllowDynamicProperties]
 class ru_RU {
     public function __construct() {
         $this->version = 2;

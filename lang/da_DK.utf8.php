@@ -1,5 +1,6 @@
 <?php
 
+#[AllowDynamicProperties]
 class da_DK {
     public function __construct() {
         $this->version = 0;

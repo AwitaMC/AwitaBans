@@ -1,5 +1,5 @@
 <?php
-
+#[AllowDynamicProperties]
 class Settings {
     public function __construct() {
         // Web interface language. Languages are stored in the "lang/" directory.

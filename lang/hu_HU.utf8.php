@@ -1,5 +1,6 @@
 <?php
 
+#[AllowDynamicProperties]
 class hu_HU {
     public function __construct() {
         $this->version = 1;
