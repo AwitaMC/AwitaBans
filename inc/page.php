@@ -245,8 +245,9 @@ class Page {
             $avatar_source = $this->settings->avatar_source_offline_mode;
         }
 
+        $uuidDashed = $uuid;
         $uuid = $this->uuid_undashify($uuid);
-        $src = str_replace(array('{uuid}', '{name}'), array($uuid, $name), $avatar_source);
+        $src = str_replace(array('{uuid}','{uuidDashed}', '{name}'), array($uuid, $uuidDashed, $name), $avatar_source);
         if (in_array($name, $this->settings->console_aliases) || $name === $this->settings->console_name) {
             $src = $this->resource($this->settings->console_image);
             $name = $this->settings->console_name;
