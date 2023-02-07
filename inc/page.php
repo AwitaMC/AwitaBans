@@ -618,9 +618,9 @@ class Page {
 
     function append_param($url, $param) {
         if (preg_match("/\?[a-z]+=/", $url)) {
-            return "${url}&${param}";
+            return "{$url}&{$param}";
         }
-        return "${url}?${param}";
+        return "{$url}?{$param}";
     }
 
     function link($url) {
