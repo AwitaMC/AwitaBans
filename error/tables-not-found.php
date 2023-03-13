@@ -43,7 +43,7 @@
             <br>
             <?php
                 echo("<br>Database tables:");
-                $db = new Database($settings, true, true);
+                $db = new Database($settings, true, false);
                 try {
                     $st = $db->conn->query("SELECT * FROM " . $settings->table['bans'] . " LIMIT 1;");
                     $st->fetch();
