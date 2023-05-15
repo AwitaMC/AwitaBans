@@ -1,5 +1,6 @@
 <?php
 
+#[AllowDynamicProperties]
 class Database {
     public static $TRUE = "1", $FALSE = "0";
 

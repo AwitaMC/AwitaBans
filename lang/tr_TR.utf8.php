@@ -1,5 +1,6 @@
 <?php
 
+#[AllowDynamicProperties]
 class tr_TR {
     public function __construct() {
         $this->version = 2;

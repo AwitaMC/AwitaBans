@@ -1,5 +1,6 @@
 <?php
 
+#[AllowDynamicProperties]
 class zh_CN {
     public function __construct() {
         $this->version = 2;

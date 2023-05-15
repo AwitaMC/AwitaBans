@@ -1,5 +1,6 @@
 <?php
 
+#[AllowDynamicProperties]
 class cs_CZ {
     public function __construct() {
         $this->version = 2;

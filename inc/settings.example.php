@@ -1,5 +1,5 @@
 <?php
-
+#[AllowDynamicProperties]
 class Settings {
     public function __construct() {
         // Web interface language. Languages are stored in the "lang/" directory.
@@ -72,6 +72,10 @@ class Settings {
         $this->console_image = "inc/img/console.png";
 
         // Avatar images for all players will be fetched from this URL.
+        // Supported variables:
+        // {uuid}       - player's 32 character UUID. Example: "dc1be393064047b49bad5b11482e44e6"
+        // {uuidDashed} - player's 36 character UUID. Example: "dc1be393-0640-47b4-9bad-5b11482e44e6"
+        // {name}       - player name.
         // Examples:
         // 'https://cravatar.eu/avatar/{uuid}/25'
         // 'https://crafatar.com/avatars/{uuid}?size=25'

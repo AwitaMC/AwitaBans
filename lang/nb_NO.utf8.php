@@ -1,5 +1,6 @@
 <?php
 
+#[AllowDynamicProperties]
 class nb_NO {
     public function __construct() {
         $this->version = 2;

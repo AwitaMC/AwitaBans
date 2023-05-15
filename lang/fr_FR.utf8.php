@@ -1,5 +1,6 @@
 <?php
 
+#[AllowDynamicProperties]
 class fr_FR {
     public function __construct() {
         $this->version = 2;
