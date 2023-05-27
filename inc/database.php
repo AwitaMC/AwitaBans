@@ -30,7 +30,10 @@ class Database {
         }
 
         if (!$cfg->show_inactive_bans) {
+            $time = gettimeofday();
+            $millis = $time["sec"] * 1000;
             $this->active_query = self::append_query($this->active_query, "active=" . Database::$TRUE);
+            $this->active_query = self::append_query($this->active_query, "(until<1 OR until>$millis)");
         }
 
         if (!$cfg->show_silent_bans) {
