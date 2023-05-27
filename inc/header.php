@@ -24,6 +24,7 @@ function navbar($links) {
         }
         $li .= " class=\"$class\"";
 
+        $title = $this->page->t("title.$title");
         if ($this->page->settings->header_show_totals && isset($this->count[$page])) {
             $title .= ' <span class="' . $this->page->settings->badge_classes . '">';
             $title .= $this->count[$page];
@@ -111,11 +112,11 @@ if ($page->settings->header_show_totals) {
             <div class="collapse navbar-collapse" id="litebans-navbar">
                 <?php
                 $this->navbar(array(
-                    "index.php"    => $this->page->t("title.index"),
-                    "bans.php"     => $this->page->t("title.bans"),
-                    "mutes.php"    => $this->page->t("title.mutes"),
-                    "warnings.php" => $this->page->t("title.warnings"),
-                    "kicks.php"    => $this->page->t("title.kicks"),
+                    "index.php"    => "index",
+                    "bans.php"     => "bans",
+                    "mutes.php"    => "mutes",
+                    "warnings.php" => "warnings",
+                    "kicks.php"    => "kicks",
                 ));
                 ?>
                 <ul class="nav navbar-nav my-2 my-lg-0">
