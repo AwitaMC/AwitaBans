@@ -319,8 +319,11 @@ class Page {
      */
     function clean($text) {
         if ($text === null) return null;
-        if (strstr($text, "\xa7") || strstr($text, "&")) {
+        if (strstr($text, "\xa7") || strstr($text, "&")) { // Regular chat colours
             $text = preg_replace("/(?i)(\x{00a7}|&)[0-9A-FK-OR]/u", "", $text);
+        }
+        if (strstr($text, "#")) { // Hex colours
+            $text = preg_replace("/(?i)#[0-9A-F]{6}/u", "", $text);
         }
         $text = htmlspecialchars($text, ENT_QUOTES);
         if (strstr($text, "\\n")) {
