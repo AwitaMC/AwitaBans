@@ -27,7 +27,7 @@
                 echo "<br>Please ensure that the correct php-intl and php-mysql packages are installed.";
                 echo "<br>After installation, these extensions can be enabled in php.ini.";
                 echo "<br><br>php.ini location: <a class=\"text-info\">$phpini</a>";
-                echo "<br>Hint: Open php.ini in a text editor, search for <a class=\"text-info\">;extension=intl.so</a> and remove the <a class=\"text-danger\">;</a> character on that line.";
+                echo "<br>Hint: Open php.ini in a text editor, search for <a class=\"text-info\">;extension=intl</a> and remove the <a class=\"text-danger\">;</a> character on that line.";
             }
             ?>
         </div>

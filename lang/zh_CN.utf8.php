@@ -7,7 +7,7 @@ class zh_CN {
         $array = array();
         $this->array = &$array;
 
-        $array["index.welcome.main"] = "欢迎来到 {server} 封禁列表.";
+        $array["index.welcome.main"] = "欢迎来到 {server} 惩罚列表.";
         $array["index.welcome.sub"] = "这里列出了本服所有的惩罚列表.";
 
         $array["title.index"] = '主页';
@@ -16,7 +16,7 @@ class zh_CN {
         $array["title.warnings"] = '警告处理';
         $array["title.kicks"] = '踢出处理';
         $array["title.player-history"] = "最近处罚于 {name}";
-        $array["title.staff-history"] = "最近处罚于 {name}";
+        $array["title.staff-history"] = "最近由 {name} 处理的处罚";
 
 
         $array["generic.ban"] = "封禁";
@@ -49,7 +49,7 @@ class zh_CN {
 
         $array["generic.type"] = "类型";
         $array["generic.active"] = "生效中";
-        $array["generic.inactive"] = "已失效";
+        $array["generic.inactive"] = "已作废";
         $array["generic.expired"] = "已过期";
         $array["generic.expired.kick"] = "N/A";
         $array["generic.player-name"] = "玩家";
@@ -72,18 +72,18 @@ class zh_CN {
 
 
         $array["table.server.name"] = "服务器";
-        $array["table.server.scope"] = "服务器范围";
-        $array["table.server.origin"] = "处理服务器";
-        $array["table.server.global"] = "*";
+        $array["table.server.scope"] = "作用域";
+        $array["table.server.origin"] = "发出处罚的服务器";
+        $array["table.server.global"] = "*全局";
         $array["table.pager.number"] = "页";
 
         $array["action.check"] = "搜索处罚结果";
         $array["action.return"] = "返回 {origin}";
 
-        $array["error.missing-args"] = "参数丢失.";
-        $array["error.name.unseen"] = "{name} 未加入过服务器.";
-        $array["error.name.invalid"] = "未知名称.";
-        $array["history.error.uuid.no-result"] = "未发现处罚结果.";
-        $array["info.error.id.no-result"] = "错误: {type} 丢失于数据库.";
+        $array["error.missing-args"] = "缺少参数。";
+        $array["error.name.unseen"] = "玩家 {name} 未加入过服务器。";
+        $array["error.name.invalid"] = "玩家名无效。";
+        $array["history.error.uuid.no-result"] = "未发现该玩家的处罚结果。";
+        $array["info.error.id.no-result"] = "错误: {type} 未在数据库中找到。";
     }
 }
