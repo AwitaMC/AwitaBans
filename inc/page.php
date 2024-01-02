@@ -600,7 +600,7 @@ class Page {
 
     function print_pager($total = -1, $args = "", $prevargs = "", $page = null, $simple = true) {
         if (!$this->settings->show_pager) return;
-        echo implode($this->generate_pager($total, $args, $prevargs, $page, $simple));
+        echo "<div class=\"litebans-pager-container\">" . implode($this->generate_pager($total, $args, $prevargs, $page, $simple)) . "</div>";
     }
 
     function generate_pager($total = -1, $args = "", $prevargs = "", $page = null, $simple = true) {
@@ -645,8 +645,8 @@ class Page {
         $pager_count = '<div class="litebans-pager-number">' . $this->t("table.pager.number") . ' ' . $cur . '/' . $pages . '</div>';
         return array(
             "prev"  => $pager_prev,
-            "next"  => $pager_next,
             "count" => $pager_count,
+            "next"  => $pager_next,
         );
     }
 
