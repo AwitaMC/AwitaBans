@@ -21,7 +21,7 @@
             <br>
         </div>
         <br>
-        <a href="../" class="btn btn-default">Continue</a>
+        <a href="../" class="btn btn-primary">Continue</a>
     </div>
 </div>
 </body>
