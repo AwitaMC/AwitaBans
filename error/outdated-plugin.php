@@ -21,7 +21,7 @@
             LiteBans will automatically upgrade the tables in the database after you have updated. After this, the web interface will work as normal.
         </div>
         <br>
-        <a href="../" class="btn btn-default">Try Again</a>
+        <a href="../" class="btn btn-primary">Try Again</a>
     </div>
 </div>
 </body>

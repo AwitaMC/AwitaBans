@@ -34,7 +34,7 @@
             ?>
         </div>
         <br>
-        <a href="../" class="btn btn-default">Try Again</a>
+        <a href="../" class="btn btn-primary">Try Again</a>
     </div>
 </div>
 </body>
