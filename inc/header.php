@@ -71,7 +71,7 @@ if ($page->settings->header_show_totals) {
             'kicks.php'    => $row[3],
         );
     } catch (PDOException $ex) {
-        $page->db->handle_error($page->settings, $ex);
+        $page->db->handle_error($page, $ex);
     }
 }
 ?>
@@ -87,14 +87,6 @@ if ($page->settings->header_show_totals) {
     <link href="<?php echo $this->page->resource('inc/css/bootstrap.min.css'); ?>" rel="stylesheet">
     <link href="<?php echo $this->page->resource('inc/css/glyphicons.min.css'); ?>" rel="stylesheet">
     <link href="<?php echo $this->page->resource('inc/css/custom.css'); ?>" rel="stylesheet">
-    <script type="text/javascript">
-        function withjQuery(tries, f) {
-            if (window.jQuery) f();
-            else if (tries > 0) window.setTimeout(function () {
-                withjQuery(tries - 1, f);
-            }, 100);
-        }
-    </script>
 </head>
 
 

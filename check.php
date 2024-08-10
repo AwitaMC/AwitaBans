@@ -35,7 +35,7 @@ class Check {
             if (!isset($uuid)) {
                 if (filter_var($name, FILTER_VALIDATE_FLOAT)) {
                     echo "<br>";
-                    redirect($page->link("info.php?type=$type&id=$name"));
+                    $page->redirect($page->link("info.php?type=$type&id=$name"), true, false);
                     return;
                 }
                 $name = htmlspecialchars($name, ENT_QUOTES);
@@ -50,9 +50,9 @@ class Check {
             }
 
             echo "<br>";
-            redirect($page->link($href));
+            $page->redirect($page->link($href), true, false);
         } catch (PDOException $ex) {
-            $page->db->handle_error($page->settings, $ex);
+            $page->db->handle_error($page, $ex);
         }
     }
 

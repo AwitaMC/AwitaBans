@@ -41,26 +41,6 @@
             <br>
             - Ensure that you are using the latest version of LiteBans.
             <br>
-            <?php
-                echo("<br>Database tables:");
-                $db = new Database($settings, true, false);
-                try {
-                    $st = $db->conn->query("SELECT * FROM " . $settings->table['bans'] . " LIMIT 1;");
-                    $st->fetch();
-                    $st->closeCursor();
-                } catch (PDOException $e) {
-                    $st = $db->conn->query("SHOW TABLES;");
-                    $st->execute();
-                    $rows = $st->fetchAll(PDO::FETCH_ASSOC);
-
-                    foreach ($rows as $row) {
-                        foreach ($row as $k => $v) {
-                            echo("<br> - $v");
-                        }
-                    }
-                    $st->closeCursor();
-                }
-            ?>
         </div>
         <br>
         <a href="../" class="btn btn-primary">Try Again</a>

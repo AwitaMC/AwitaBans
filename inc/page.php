@@ -1,5 +1,4 @@
 <?php
-require_once './inc/init.php';
 
 #[AllowDynamicProperties]
 class Page {
@@ -23,12 +22,17 @@ class Page {
         } else {
             $this->lang = new en_US();
         }
-        $this->db = new Database($cfg, $connect, !($cfg instanceof EnvSettings));
+        $this->settings = $cfg;
+
+        if (!extension_loaded("pdo_mysql") || !extension_loaded("intl")) {
+            $this->redirect("error/missing-extensions.php");
+        }
+
+        $this->db = new Database($this, $connect, !($cfg instanceof EnvSettings));
 
         $this->formatter = new IntlDateFormatter($cfg->lang, IntlDateFormatter::LONG, IntlDateFormatter::NONE, $cfg->timezone, IntlDateFormatter::GREGORIAN, $cfg->date_format);
 
         $this->conn = $this->db->conn;
-        $this->settings = $cfg;
         $this->uuid_name_cache = array();
 
         $this->name = $name;
@@ -201,7 +205,7 @@ class Page {
 
             return $rows;
         } catch (PDOException $ex) {
-            $this->db->handle_error($this->settings, $ex);
+            $this->db->handle_error($this, $ex);
             return array();
         }
     }
@@ -247,7 +251,7 @@ class Page {
 
         $uuidDashed = $uuid;
         $uuid = $this->uuid_undashify($uuid);
-        $src = str_replace(array('{uuid}','{uuidDashed}', '{name}'), array($uuid, $uuidDashed, $name), $avatar_source);
+        $src = str_replace(array('{uuid}', '{uuidDashed}', '{name}'), array($uuid, $uuidDashed, $name), $avatar_source);
         if (in_array($name, $this->settings->console_aliases) || $name === $this->settings->console_name) {
             $src = $this->resource($this->settings->console_image);
             $name = $this->settings->console_name;
@@ -430,6 +434,16 @@ class Page {
         return ($millis > $until);
     }
 
+    function redirect($url, $showtext = true, $script = true) {
+        if ($showtext === true) {
+            echo "<a href=\"$url\">Redirecting...</a>";
+        }
+        echo("<input type=\"hidden\" id=\"redirect-url\" value=\"$url\">");
+        if ($script) {
+            die("<script src={$this->resource('inc/js/redirect.js')}></script>");
+        } else die;
+    }
+
     /**
      * Returns true if a string should be treated as a UUID.
      * @param $str
@@ -542,18 +556,19 @@ class Page {
         echo '
          <div class="row litebans-check">
              <div class="litebans-check litebans-check-form">
-                 <form action="check.php" onsubmit="captureForm(event);" class="form-inline">
+                 <form action="check.php" class="form-inline" id="check">
                     <div class="form-group">
                         <input type="text" class="form-control" name="name" id="user" placeholder="' . $this->t("generic.player-name") . '">
                     </div>
-                    <input type="hidden" name="table" value="' . $this->name . '">
-                    <button type="submit" class="btn btn-primary" style="margin-left: 5px;">' . $this->t("action.check") . '</button>
+                    <input type="hidden" name="table" id="form-table" value="' . $this->name . '">
+                    <input type="hidden" name="link" id="form-link" value="' . $link . '">
+                    <button type="submit" class="btn btn-primary litebans-check-btn">' . $this->t("action.check") . '</button>
                  </form>
              </div>
-             <script type="text/javascript">function captureForm(b){var o=$(".litebans-check-output");o.removeClass("show");var x=setTimeout(function(){o.html("<br>")}, 150);$.ajax({type:"GET",url:"' . $link . '?name="+$("#user").val()+"&table=' . $table . '"}).done(function(c){clearTimeout(x);o.html(c);o.addClass("show")});b.preventDefault();return false};</script>
          </div>
          <div class="litebans-check litebans-check-output fade" class="success fade" data-alert="alert"></div>
          <p class="noselect"></p>
+         <script src="' . $this->resource('inc/js/form.js') . '"></script>
          ';
     }
 
@@ -653,7 +668,7 @@ class Page {
     function table_end($clicky = true) {
         echo '</table>';
         if ($clicky) {
-            echo "<script type=\"text/javascript\">withjQuery(30,function(){ $('tr').click(function(){var href=$(this).find('a').attr('href');if(href!==undefined)window.location=href;}).hover(function(){\$(this).toggleClass('hover');}); });</script>";
+            echo "<script src={$this->resource('inc/js/table.js')}></script>";
         }
     }
 

@@ -4,15 +4,16 @@
 class Database {
     public static $TRUE = "1", $FALSE = "0";
 
-    public function __construct(Settings $settings, $connect, $verify) {
+    public function __construct(Page $page, $connect, $verify) {
         if ($connect) {
-            $this->connect($settings, $verify);
+            $this->connect($page, $verify);
         } else {
             $this->conn = null;
         }
     }
 
-    function connect(Settings $cfg, $verify = true) {
+    function connect(Page $page, $verify = true) {
+        $cfg = $page->settings;
         $driver = $cfg->driver;
         $host = $cfg->host;
         $port = $cfg->port;
@@ -41,7 +42,7 @@ class Database {
         }
 
         if ($username === "" && $password === "") {
-            redirect("error/unconfigured.php");
+            $page->redirect("error/unconfigured.php");
         }
 
         $dsn = "$driver:dbname=$database;host=$host;port=$port";
@@ -84,7 +85,8 @@ class Database {
      * @param $e Exception
      * @throws Exception
      */
-    function handle_error(Settings $cfg, Exception $e) {
+    function handle_error(Page $page, Exception $e) {
+        $cfg = $page->settings;
         if ($cfg->error_throw) throw $e;
 
         $message = 'Database error: ' . $e->getMessage();
@@ -92,7 +94,7 @@ class Database {
             if (strstr($message, "Access denied for user")) {
                 $param = "";
                 if ($cfg->error_reporting) $param = "?error=" . base64_encode($e->getMessage());
-                redirect("error/access-denied.php$param");
+                $page->redirect("error/access-denied.php$param");
             }
             if (strstr($message, "Base table or view not found:") || strstr($message, "Unknown column")) {
                 try {
@@ -100,9 +102,9 @@ class Database {
                     $st->fetch();
                     $st->closeCursor();
                 } catch (PDOException $e) {
-                    redirect("error/tables-not-found.php");
+                    $page->redirect("error/tables-not-found.php");
                 }
-                redirect("error/outdated-plugin.php");
+                $page->redirect("error/outdated-plugin.php");
             }
         }
         if (!$cfg->error_reporting) $message = "Database error";
