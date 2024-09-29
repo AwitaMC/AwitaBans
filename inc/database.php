@@ -66,7 +66,7 @@ class Database {
                 $st->closeCursor();
             }
         } catch (PDOException $e) {
-            $this->handle_error($cfg, $e);
+            $this->handle_error($page, $e);
         }
         if ($driver === 'pgsql') {
             $this->conn->exec("SET NAMES 'UTF8';");
