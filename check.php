@@ -33,7 +33,7 @@ class Check {
             $type = $info['type'];
 
             if (!isset($uuid)) {
-                if (filter_var($name, FILTER_VALIDATE_FLOAT)) {
+                if (filter_var($name, FILTER_VALIDATE_FLOAT) || $page->is_randomid($name)) {
                     echo "<br>";
                     $page->redirect($page->link("info.php?type=$type&id=$name"), true, false);
                     return;

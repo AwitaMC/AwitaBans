@@ -143,6 +143,13 @@ count($args) >= 2 && is_string($args[0]) && is_string($args[1]) or die($page->t(
 $type = $args[0];
 $id = $args[1];
 
+if ($page->is_randomid($id)) {
+    $reveal = $page->obscureID->reveal($id);
+    if ($reveal >= 0) {
+        $id = $reveal;
+    }
+}
+
 $page->set_info($page->type_info($type));
 
 ($page->type !== null) or die("Unknown page type requested");

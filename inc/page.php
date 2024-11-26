@@ -37,6 +37,8 @@ class Page {
 
         $this->name = $name;
 
+        $this->obscureID = null;
+
         $this->type = null;
         $this->table = null;
         $this->title = null;
@@ -86,6 +88,10 @@ class Page {
                     $this->args = array();
                 }
             }
+        }
+        if ($cfg->random_secret !== '') {
+            require_once './inc/obscureID.php';
+            $this->obscureID = new ObscureID($cfg->random_secret);
         }
         $argc = count($this->args);
         $this->page = 1;
@@ -442,6 +448,10 @@ class Page {
         if ($script) {
             die("<script src={$this->resource('inc/js/redirect.js')}></script>");
         } else die;
+    }
+
+    function is_randomid($str) {
+        return $this->obscureID !== null && preg_match("/(?i)^[0-9a-fmvz]+$/", $str);
     }
 
     /**
