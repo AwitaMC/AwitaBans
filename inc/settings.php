@@ -34,16 +34,20 @@ class Settings {
         // (Note: this feature requires LiteBans version 2.16.2 or later.)
         $this->random_secret = '';
 
+
         // Show server scope column?
         $this->show_server_scope = false;
 
         // Show server origin column?
         $this->show_server_origin = false;
 
-        // Show server scope column in info.php?
+        // Show random ID on info.php?
+        $this->info_show_random_id = false;
+
+        // Show server scope column on info.php?
         $this->info_show_server_scope = false;
 
-        // Show server origin column in info.php?
+        // Show server origin column on info.php?
         $this->info_show_server_origin = true;
 
         // Show inactive bans? Removed bans will show (Unbanned), mutes will show (Unmuted), warnings will show (Expired).

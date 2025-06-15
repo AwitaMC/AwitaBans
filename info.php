@@ -157,6 +157,10 @@ $page->set_info($page->type_info($type));
 filter_var($id, FILTER_VALIDATE_INT) or die("Invalid ID");
 
 $id = (int)$id;
+$displayID = $id;
+if ($page->settings->info_show_random_id) {
+    $displayID = $page->obscureID->obscure($id);
+}
 
 // Safe user input (constants only)
 $type = $page->type;
@@ -180,7 +184,7 @@ if ($st->execute()) {
     $name = $page->t("generic.$type");
     $permanent = $info->permanent();
 
-    $page->name = $page->title = "$name #$id";
+    $page->name = $page->title = "$name #$displayID";
     $page->print_title();
 
     $header = $page->name;

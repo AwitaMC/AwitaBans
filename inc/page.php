@@ -524,6 +524,9 @@ class Page {
             $this->table_headers_printed = true;
         }
         $id = $row['id'];
+        if ($this->settings->info_show_random_id) {
+            $id = $this->obscureID->obscure($id);
+        }
         echo "<tr>";
         foreach ($array as $header => $text) {
             $a = "a";
