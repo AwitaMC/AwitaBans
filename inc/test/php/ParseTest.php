@@ -18,6 +18,7 @@ final class ParseTest extends TestCase {
             self::assertStringNotContainsStringIgnoringCase("deprecated", $result);
             // Check for success
             self::assertStringContainsString("No syntax errors detected in ", $result);
+            self::assertSame($exit, 0);
         }
     }
 }
