@@ -12,6 +12,7 @@ final class ParseTest extends TestCase {
             self::assertStringNotContainsStringIgnoringCase("errors parsing", $result);
             self::assertStringNotContainsStringIgnoringCase("error:", $result);
             self::assertStringNotContainsStringIgnoringCase("warning:", $result);
+            self::assertStringNotContainsStringIgnoringCase("deprecated", $result);
             // Check for success
             self::assertStringContainsString("No syntax errors detected in ", $result);
         }
