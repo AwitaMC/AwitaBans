@@ -295,6 +295,20 @@ body {
     font-weight: 800;
 }
 
+/* Alertas */
+/*div.alert {
+    border-left: 4px solid #fff;
+    padding: 4px;
+    padding-left: 8px;
+    background-color: #fff;
+    color: #fff;
+}
+
+div.alert.alert-info {
+    border-left-color: #2aaacf;
+    background-color: #2f6473;
+}*/
+
 /* Tabla */
 
 table.table-bordered {
