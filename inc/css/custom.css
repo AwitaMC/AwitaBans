@@ -63,6 +63,10 @@ tr.hover {
     text-align: left;
 }
 
+.litebans-check-btn {
+    margin-left: 5px;
+}
+
 .litebans-check-form {
     margin-left: 15px;
 }

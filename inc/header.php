@@ -71,7 +71,7 @@ if ($page->settings->header_show_totals) {
             'kicks.php'    => $row[3],
         );
     } catch (PDOException $ex) {
-        $page->db->handle_error($page->settings, $ex);
+        $page->db->handle_error($page, $ex);
     }
 }
 ?>

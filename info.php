@@ -143,6 +143,13 @@ count($args) >= 2 && is_string($args[0]) && is_string($args[1]) or die($page->t(
 $type = $args[0];
 $id = $args[1];
 
+if ($page->is_randomid($id)) {
+    $reveal = $page->obscureID->reveal($id);
+    if ($reveal >= 0) {
+        $id = $reveal;
+    }
+}
+
 $page->set_info($page->type_info($type));
 
 ($page->type !== null) or die("Unknown page type requested");
@@ -150,6 +157,10 @@ $page->set_info($page->type_info($type));
 filter_var($id, FILTER_VALIDATE_INT) or die("Invalid ID");
 
 $id = (int)$id;
+$displayID = $id;
+if ($page->settings->info_show_random_id) {
+    $displayID = $page->obscureID->obscure($id);
+}
 
 // Safe user input (constants only)
 $type = $page->type;
@@ -173,7 +184,7 @@ if ($st->execute()) {
     $name = $page->t("generic.$type");
     $permanent = $info->permanent();
 
-    $page->name = $page->title = "$name #$id";
+    $page->name = $page->title = "$name #$displayID";
     $page->print_title();
 
     $header = $page->name;

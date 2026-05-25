@@ -14,9 +14,6 @@ class Check {
         } else if (strlen($name) > 16 || !preg_match($page->settings->username_regex_pattern, $name)) {
             $this->println($page->t("error.name.invalid"));
             return;
-        } else if (preg_match('/^#(ban|kick|mute|warn)-(\d+)$/', $name, $matches)) {
-            $type = $matches[1];
-            $id = $matches[2];
         }
         $table = $page->settings->table['history']; // Not user input
 
@@ -33,12 +30,12 @@ class Check {
 
             // sanitize $_POST['table'] ($from)
             $info = $page->type_info($from);
-            //$type = $info['type'];
+            $type = $info['type'];
 
             if (!isset($uuid)) {
-                if (filter_var($name, FILTER_VALIDATE_FLOAT)) {
+                if (filter_var($name, FILTER_VALIDATE_FLOAT) || $page->is_randomid($name)) {
                     echo "<br>";
-                    redirect($page->link("info.php?type=$type&id=$id"));
+                    $page->redirect($page->link("info.php?type=$type&id=$name"), true, false);
                     return;
                 }
                 $name = htmlspecialchars($name, ENT_QUOTES);
@@ -53,9 +50,9 @@ class Check {
             }
 
             echo "<br>";
-            redirect($page->link($href));
+            $page->redirect($page->link($href), true, false);
         } catch (PDOException $ex) {
-            $page->db->handle_error($page->settings, $ex);
+            $page->db->handle_error($page, $ex);
         }
     }
 
