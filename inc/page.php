@@ -656,8 +656,8 @@ class Page {
         $pager_count = '<div class="litebans-pager-number">' . $this->t("table.pager.number") . ' ' . $cur . '/' . $pages . '</div>';
         return array(
             "prev"  => $pager_prev,
-            "next"  => $pager_next,
             "count" => $pager_count,
+            "next"  => $pager_next,
         );
     }
 
